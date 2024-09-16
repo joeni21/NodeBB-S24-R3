@@ -192,7 +192,6 @@ module.exports = function (User) {
             if (!exists) {
                 return numTries ? username : null;
             }
-            
             username = `${userData.username} ${numTries.toString(32)}`;
             numTries += 1;
         }

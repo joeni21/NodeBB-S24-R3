@@ -192,9 +192,12 @@ module.exports = function (User) {
             if (!exists) {
                 return numTries ? username : null;
             }
-            
+            const suffix = Math.floor(1000 + Math.random() * 9000);
             username = `${userData.username} ${numTries.toString(32)}`;
             numTries += 1;
+            if (numTries > 10) {
+                throw new Error('[[error:username-taken]]');
+            }
         }
     };
 };
